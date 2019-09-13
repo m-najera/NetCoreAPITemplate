@@ -26,9 +26,9 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-*/[Bb]in/
-*/[Oo]bj/
-*/[Ll]og/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -350,3 +350,73 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+#Junk Files
+*.DS_Store
+[Tt]humbs.db
+
+#Visual Studio Files
+[Oo]bj
+[Bb]in
+[Dd]ebug
+[Bb]uild/
+*.user
+*.suo
+*.exe
+*.pdb
+*.aps
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.[Cc]ache
+*.bak
+*.ncb
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+ipch/ 
+*.dbmdl
+*.csproj.user
+*.cache
+*.swp
+*.vspscc
+*.vssscc
+*.bak.*
+*.bak
+
+#Tools
+_ReSharper.*
+_ReSharper*/
+*.resharper
+*.resharper.user
+[Nn][Dd]epend[Oo]ut*/
+Ankh.NoLoad
+
+#Other
+.svn
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
