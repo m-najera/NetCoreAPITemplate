@@ -25,5 +25,12 @@ namespace Training.Controllers
         {
             return await _IoC.GetService<GetUsers>().Execute();
         }
+
+        [HttpGet]
+        [Route("/api/[controller]/{id}")]
+        public async Task<List<DTO.Order>> GetUserOrders(Guid id)
+        {
+            return await _IoC.GetService<GetUserOrders>().Execute(id);
+        }
     }
 }

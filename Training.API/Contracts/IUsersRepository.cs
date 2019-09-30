@@ -9,5 +9,7 @@ namespace Training.API.Contracts
     public interface IUsersRepository
     {
         Task<List<User>> GetAll();
+        Task<List<Order>> GetUserOrders(Guid Id);
     }
+
 }

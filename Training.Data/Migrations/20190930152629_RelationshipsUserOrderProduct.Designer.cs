@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Training.Data;
 
 namespace Training.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20190930152629_RelationshipsUserOrderProduct")]
+    partial class RelationshipsUserOrderProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,10 +26,6 @@ namespace Training.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<string>("Status");
-
                     b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
@@ -37,34 +35,12 @@ namespace Training.Data.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Training.Data.Models.OrderProduct", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid?>("OrderId");
-
-                    b.Property<Guid>("ProductId");
-
-                    b.Property<int>("Quantity");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderProduct");
-                });
-
             modelBuilder.Entity("Training.Data.Models.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
-
-                    b.Property<int>("MerchantId");
 
                     b.Property<string>("Name");
 
@@ -98,18 +74,6 @@ namespace Training.Data.Migrations
                     b.HasOne("Training.Data.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Training.Data.Models.OrderProduct", b =>
-                {
-                    b.HasOne("Training.Data.Models.Order")
-                        .WithMany("OrderProducts")
-                        .HasForeignKey("OrderId");
-
-                    b.HasOne("Training.Data.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -37,6 +37,7 @@ namespace Training
         public void ConfigureOperations(IServiceCollection services)
         {
             services.AddTransient<GetUsers>();
+            services.AddTransient<GetUserOrders>();
             services.AddTransient<GetProducts>();
         }
 

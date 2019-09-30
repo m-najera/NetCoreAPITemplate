@@ -14,6 +14,18 @@ namespace Training.Data.Models
         public Guid UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
-        List<OrderProduct> OrderProducts { get; set; }
+        public String Status { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; }
+
+        public DTO.Order ToDTO()
+        {
+            return new DTO.Order
+            {
+                Id = Id,
+                Status = Status,
+                CreatedAt = CreatedAt
+            };
+        }
     }
 }
